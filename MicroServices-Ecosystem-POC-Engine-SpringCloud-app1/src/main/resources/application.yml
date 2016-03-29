@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: app1
+
+server:
+  port: 9000  
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka.server.serviceUrl:http://localhost:8700/eureka/}

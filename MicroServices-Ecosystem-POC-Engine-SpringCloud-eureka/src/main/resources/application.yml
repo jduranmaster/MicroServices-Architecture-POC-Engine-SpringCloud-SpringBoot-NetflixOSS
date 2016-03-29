@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: eureka
+
+logging:
+  level:
+    com.netflix: 'WARN'
+    org.springframework.cloud: 'WARN'
+
+server:
+  port: 8700
+
+
+---
+
+spring:
+  profiles: replica-node
+eureka:
+  instance: 
+    hostname: ${env.eureka.instance:localhost}
+  client:
+    enable: false
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${eureka.server.serviceUrl:http://localhost:8761/eureka/}
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    context: /eureka
+
+---
+
+spring:
+  profiles: master-node
+
+eureka:
+  instance: 
+    hostname: ${env.eureka.instance:localhost}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${eureka.server.serviceUrl:http://localhost:8761/eureka/}
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    context: /eureka

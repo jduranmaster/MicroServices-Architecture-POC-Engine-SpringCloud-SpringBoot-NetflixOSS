@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: load-balancer
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: ${eureka.server.serviceUrl:http://localhost:8700/eureka/}
+
