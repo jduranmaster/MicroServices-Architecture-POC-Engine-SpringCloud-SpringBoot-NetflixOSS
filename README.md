@@ -7,9 +7,9 @@ MicroServices (spring-boot) integration with Eureka Service Registry and Zuul (n
 The microservices are implemented in Scala programming language.
 
 ## Structure 
-* eureka : the eureka server spring boot project (single or cluster configuration)
-* load-balancer: the zuul proxy load balancer project
-* app<X>: simple microservices spring boot application registered to eureka server
+* eureka : the eureka server spring boot project (single or cluster configuration).
+* load-balancer: the zuul proxy load balancer project.
+* app<X>: simple microservices spring boot application registered to eureka server.
 
 
 ## Prerequisites 
